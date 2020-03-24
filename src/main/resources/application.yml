@@ -1,0 +1,22 @@
+server:  
+  port: 8000
+#日志
+logging:
+  config: classpath:log4j2.xml
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/*/*.xml,classpath:mapper/*/*/*.xml
+  type-aliases-package: com.sdstc.*.model
+  configuration:
+    #当查询数据为空时字段返回为null，不加这个查询数据为空时，字段将被隐藏
+    call-setters-on-nulls: true
+spring:
+  application:
+    name: server
+  #数据源
+  datasource:
+    url: jdbc:mysql://172.16.200.12:3306/wy?characterEncoding=utf8&allowMultiQueries=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: qwe123-=
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
